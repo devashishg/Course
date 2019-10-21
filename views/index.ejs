@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <%var  filename = https://images.pexels.com/photos/2519823/pexels-photo-2519823.jpeg?cs=srgb&dl=agriculture-animal-photography-animals-2519823.jpg&fm=jpg %>
+    <img src="<%= filename %>" 
+        alt="Wallpaper" width="400px" height="100%" id='photo'>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <input type="file" name="Wall" id="Wall" required>
+        <button type="submit">
+            Upload
+        </button>
+    </form>
+
+    <script type="text/javascript" src="../index.js"></script>
+</body>
+</html>
