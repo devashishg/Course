@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <%var  filename = https://images.pexels.com/photos/2519823/pexels-photo-2519823.jpeg?cs=srgb&dl=agriculture-animal-photography-animals-2519823.jpg&fm=jpg %>
-    <img src="<%= filename %>" 
+        
+    <img src="<%= (typeof filename == 'undefined') ? 'https://o.aolcdn.com/images/dims?quality=85&image_uri=http%3A%2F%2Fwww.blogcdn.com%2Fwww.engadget.com%2Fmedia%2F2008%2F10%2Fwindows-clouds.jpg&client=amp-blogside-v2&signature=d934e8daf824d30219d1454eeb2690805cc8562c' : filename  %>"
         alt="Wallpaper" width="400px" height="100%" id='photo'>
     <form action="/upload" method="POST" enctype="multipart/form-data">
         <input type="file" name="Wall" id="Wall" required>

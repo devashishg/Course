@@ -4,6 +4,8 @@ const multer = require('multer');
 const ejs = require('ejs');
 const path = require('path');
 
+
+//Multer setting
 var Storage = multer.diskStorage(
     {
         destination:(req,res,cb)=>{
@@ -16,10 +18,13 @@ var Storage = multer.diskStorage(
 );
 
 var upload = multer({
-    storage: Storage  
+    storage: Storage
+
 }).single("Wall");
 
+//setting ejs as viewEngine
 app.set('view engine','ejs');
+//static Folder
 app.use(express.static("./public"));
 
 app.get('/',(req,res)=>{
@@ -34,20 +39,16 @@ app.post("/upload",(req,res)=>{
             });
         }else{res.render('index',{
                 message: 'File Uploaded Sucessfully!!',
-                filename: `../public/${req.file.filename}`
+                filename: `/${req.file.filename}`
             });
-            //fileN = req.file.filename;
+            fileN = req.file.filename;
+            console.log(fileN);
         }
+
     });
-    //var imagE = window.document.getElementById("photo");
-    //imagE.src= `./public/${fileN}`
+    
 });
 
-
-
-// app.get('/app',(req,res)=>{
-//     res.send('It works fine');
-// });
 
 app.listen(3000,(req,res)=>{
     console.log('Server strated...... Running!!')
